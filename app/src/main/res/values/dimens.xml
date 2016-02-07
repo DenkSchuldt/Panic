@@ -1,0 +1,11 @@
+<resources>
+
+    <dimen name="margin.horizontal.small">10dp</dimen>
+    <dimen name="margin.horizontal.medium">20dp</dimen>
+    <dimen name="margin.horizontal.large">30dp</dimen>
+
+    <dimen name="margin.vertical.small">5dp</dimen>
+    <dimen name="margin.vertical.medium">15dp</dimen>
+    <dimen name="margin.vertical.large">25dp</dimen>
+
+</resources>

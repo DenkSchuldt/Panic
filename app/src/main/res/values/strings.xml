@@ -1,0 +1,8 @@
+<resources>
+
+    <string name="app_name">PANIC</string>
+    <string name="fragment.welcome.header">PANIC te permite enviar tus coordenadas a contactos de confianza cada cierto tiempo.</string>
+    <string name="fragment.emails.header">Ingresa uno a más correos electrónicos de confianza. Ellos recibirán tus coordenadas:</string>
+    <string name="email.hint">usuario@correo.com</string>
+
+</resources>
