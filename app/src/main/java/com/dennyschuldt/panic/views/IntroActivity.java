@@ -1,24 +1,20 @@
 package com.dennyschuldt.panic.views;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.view.View;
-import android.widget.TextView;
-
-
-import com.dennyschuldt.panic.Constants;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import com.dennyschuldt.panic.R;
 import com.dennyschuldt.panic.adapters.IntroViewPagerAdapter;
-import com.dennyschuldt.panic.fragments.AddEmailsFragment;
 
 /**
  * Created by denny on 2/6/16.
  */
 public class IntroActivity  extends AppCompatActivity {
 
+    private Menu menu;
     private ViewHolder viewHolder;
     private IntroViewPagerAdapter viewPagerAdapter;
 
@@ -33,27 +29,41 @@ public class IntroActivity  extends AppCompatActivity {
         viewHolder.viewPager.setAdapter(viewPagerAdapter);
         viewHolder.viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) { }
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+            }
             @Override
             public void onPageSelected(int position) {
-                if (position == 1) {
-                    viewHolder.fab.show();
-                } else {
-                    viewHolder.fab.hide();
+                switch (position) {
+                    case 0:
+                        menu.getItem(0).setVisible(true);
+                        break;
+                    case 1:
+                        menu.getItem(0).setVisible(false);
+                        break;
                 }
             }
             @Override
             public void onPageScrollStateChanged(int state) {
-
             }
         });
     }
 
     @Override
-    protected void onResume() {
-        super.onResume();
-        if (viewHolder.viewPager.getCurrentItem() != 1) {
-            viewHolder.fab.hide();
+    public boolean onCreateOptionsMenu(Menu _menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.intro_menu, _menu);
+        menu = _menu;
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.next:
+                viewHolder.viewPager.setCurrentItem(viewHolder.viewPager.getCurrentItem() + 1);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
     }
 
@@ -69,27 +79,12 @@ public class IntroActivity  extends AppCompatActivity {
     /**
      *
      */
-    public void addEmail() {
-        if (viewHolder.viewPager.getCurrentItem() == Constants.ADD_EMAILS_FRAGMENT) {
-            AddEmailsFragment fragment = (AddEmailsFragment)
-                    viewPagerAdapter.getRegisteredFragment(Constants.ADD_EMAILS_FRAGMENT);
-            fragment.addEmail();
-        }
-    }
+    public class ViewHolder {
 
-    /**
-     *
-     */
-    public class ViewHolder implements View.OnClickListener {
-
-        public TextView skip;
-        public TextView next;
         public ViewPager viewPager;
-        public FloatingActionButton fab;
 
         public void buildLayout() {
             findViews();
-            setOnClickListeners();
         }
 
         /**
@@ -97,31 +92,6 @@ public class IntroActivity  extends AppCompatActivity {
          */
         public void findViews() {
             viewPager = (ViewPager) findViewById(R.id.intro_viewpager);
-            skip = (TextView) findViewById(R.id.intro_skip);
-            next = (TextView) findViewById(R.id.intro_next);
-            fab = (FloatingActionButton) findViewById(R.id.intro_fab);
-        }
-
-        /**
-         *
-         */
-        public void setOnClickListeners() {
-            skip.setOnClickListener(this);
-            next.setOnClickListener(this);
-            fab.setOnClickListener(this);
-        }
-
-        @Override
-        public void onClick(View v) {
-            switch (v.getId()) {
-                case R.id.intro_skip:
-                    break;
-                case R.id.intro_next:
-                    break;
-                case R.id.intro_fab:
-                    addEmail();
-                    break;
-            }
         }
 
     }

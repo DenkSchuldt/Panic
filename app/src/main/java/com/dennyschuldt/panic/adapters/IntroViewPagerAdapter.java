@@ -7,7 +7,6 @@ import android.util.SparseArray;
 import android.view.ViewGroup;
 
 import com.dennyschuldt.panic.fragments.AddEmailsFragment;
-import com.dennyschuldt.panic.fragments.SaveEmailsFragment;
 import com.dennyschuldt.panic.fragments.WelcomeFragment;
 
 /**
@@ -23,7 +22,7 @@ public class IntroViewPagerAdapter extends FragmentStatePagerAdapter {
 
   @Override
   public int getCount() {
-    return 3;
+    return 2;
   }
 
   @Override
@@ -35,9 +34,6 @@ public class IntroViewPagerAdapter extends FragmentStatePagerAdapter {
         break;
       case 1:
         fragment = new AddEmailsFragment();
-        break;
-      case 2:
-        fragment = new SaveEmailsFragment();
         break;
     }
     return fragment;

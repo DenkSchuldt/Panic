@@ -4,16 +4,16 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    android:layout_marginTop="@dimen/margin.vertical.large"
-    android:layout_marginBottom="@dimen/margin.vertical.large"
-    android:layout_marginLeft="@dimen/margin.horizontal.large"
-    android:layout_marginRight="@dimen/margin.horizontal.large">
+    android:gravity="center">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/fragment.welcome.header"
-        android:gravity="center"/>
+        android:gravity="center"
+        android:paddingTop="@dimen/margin.vertical.large"
+        android:paddingBottom="@dimen/margin.vertical.large"
+        android:paddingLeft="@dimen/margin.horizontal.large"
+        android:paddingRight="@dimen/margin.horizontal.large"/>
 
 </LinearLayout>
