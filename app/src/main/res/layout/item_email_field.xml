@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<EditText
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:hint="@string/email.hint"/>
+    android:paddingTop="@dimen/margin.vertical.medium"
+    android:paddingBottom="@dimen/margin.vertical.medium"
+    android:paddingLeft="@dimen/margin.horizontal.small"
+    android:paddingRight="@dimen/margin.horizontal.small">
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/email.delete">
+        <EditText
+            android:id="@+id/email.text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/email.hint"/>
+    </android.support.design.widget.TextInputLayout>
+
+    <ImageView
+        android:id="@+id/email.delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_delete_white_36dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:tint="@color/gray"
+        android:background="?selectableItemBackgroundBorderless"/>
+
+</RelativeLayout>

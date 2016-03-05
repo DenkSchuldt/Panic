@@ -39,8 +39,8 @@
             android:paddingTop="@dimen/margin.vertical.large"
             android:paddingBottom="@dimen/margin.vertical.large"
             android:paddingLeft="@dimen/margin.horizontal.medium"
-            android:paddingRight="@dimen/margin.horizontal.medium">
-            <include layout="@layout/item_email_field"/>
+            android:paddingRight="@dimen/margin.horizontal.medium"
+            android:animateLayoutChanges="true">
         </LinearLayout>
     </ScrollView>
     <Button

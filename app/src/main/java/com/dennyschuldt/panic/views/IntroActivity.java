@@ -8,6 +8,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import com.dennyschuldt.panic.R;
 import com.dennyschuldt.panic.adapters.IntroViewPagerAdapter;
+import com.dennyschuldt.panic.fragments.AddEmailsFragment;
 
 /**
  * Created by denny on 2/6/16.
@@ -30,6 +31,8 @@ public class IntroActivity  extends AppCompatActivity {
         viewHolder.viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                AddEmailsFragment fragment = (AddEmailsFragment) viewPagerAdapter.getRegisteredFragment(1);
+                fragment.updateBackground(positionOffset);
             }
             @Override
             public void onPageSelected(int position) {
